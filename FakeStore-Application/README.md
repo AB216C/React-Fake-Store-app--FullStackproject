@@ -1,12 +1,13 @@
 # FAKESTORE API PROJECT
 
-The main goal for the project is to fetch fakeStore API and display data to the user interface. 
+The main goal for the project is to fetch assigned fakeStore API and display data to the user interface. In addition, Users of this application have the ability to see a list of products from API, delete products, add new products, and update product information. Users can also add items to the cart and view all items added to the cart together with their prices.
 
-User has ability to see a list of products from api, delete products, add products, and update products. 
+The navigation bar, buttons, and other HTML tags were styled using react-bootstrap documentation and CSS.
 
-The navigation bar, buttons and other html tags were  styled using react-bootstrap documentations.
+useParams() function was essential in accessing product ID for individual items and helped in viewing details of the item, updating,  and deleting a specific item from API.
 
-useParams() function were very essential in accessing product id for an individual item and were helpful in viewing details of the item, updating and deleting items from api.
+useNavigate() and Routing methods played a big role in navigating from one component page to another. 
 
-useNavigate() and Routing methods played a big role in navigating from one components to another. 
+
+
 
