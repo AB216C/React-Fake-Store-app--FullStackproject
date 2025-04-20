@@ -1,6 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.css';
 import NavigationPage from "./NavigationPage"
 import { useNavigate } from "react-router-dom"
+import { Button } from 'react-bootstrap';
 
 
 function HomePage() {
@@ -12,11 +13,11 @@ function HomePage() {
   }
 
   return(
-    <div>
+    <div className="bg-dark text-white fs-1 px-4 py-4 " >
       <NavigationPage/>
       <h1>This is E-commmerce Fake Store</h1>
       <p>Welcome to our Store. We are here to serve you</p>
-      <button onClick={showProductListing}>Enter the store</button>
+      <Button onClick={showProductListing} variant="danger" >Enter the store</Button>
     </div>
 
   )
