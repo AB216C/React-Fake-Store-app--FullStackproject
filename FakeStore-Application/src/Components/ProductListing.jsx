@@ -9,6 +9,7 @@ function ProductListing(){
   const [products,setProducts]=useState("")
   const [cart,setCart]=useState([])
   const [showCart,setShowCart]=useState(false)
+  const [loading,setLoading]=useState(false)
   const navigate =useNavigate()
 
   const showDetails=(id)=>{
@@ -25,10 +26,12 @@ function ProductListing(){
   }
 
   const fetchProducts=()=>{
+    setLoading(true)
     fetch('https://fakestoreapi.com/products')
     .then((response)=>response.json())
     .then((data)=>setProducts(data))
     .catch((error)=>console.log("Unable to fetch Data",error))
+    setLoading(false)
   }
 
   useEffect(()=>{
@@ -41,6 +44,8 @@ function ProductListing(){
     <div className="ProductListing">
       <NavigationPage/>
 
+      {loading&&<p>Loading...</p>}
+
       <button onClick={()=>setShowCart(!showCart)} className="btn btn-dark fs-1 mt-4"> View Cart:{cart.length} items </button>
 
       {showCart&& cart.map((product,index)=> 
@@ -49,6 +54,7 @@ function ProductListing(){
       )}
 
       <div className="ProductsList">
+
 
         {
           products && products.map((product,index)=>(

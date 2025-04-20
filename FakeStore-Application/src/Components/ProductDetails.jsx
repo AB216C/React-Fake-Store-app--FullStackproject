@@ -2,11 +2,11 @@ import 'bootstrap/dist/css/bootstrap.css';
 import {useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
 
+
 function ProductDetails() {
   const {productid} = useParams()
   const [productData,setProductData]=useState({})
-
-
+  const [loading,setLoading]=useState(false)
 
   const navigate = useNavigate()
 
@@ -15,6 +15,7 @@ function ProductDetails() {
   }
 
   const deleteItem=()=>{ if(window.confirm("Do you want to remove this item?")){
+    setLoading(true)
     fetch('https://fakestoreapi.com/products/'+productid, {
       method:"DELETE",
       headers: {
@@ -25,28 +26,33 @@ function ProductDetails() {
     .then((response)=>{
       alert("The Product  was deleted successfully")
       navigate("/products")
+      setLoading(false)
     })
 
     .catch((error)=>{
       console.log("Unable to delete the product", error)
+      setLoading(false)
     })
    
   }
   }
 
   useEffect(()=> {
+    setLoading(true)
     fetch('https://fakestoreapi.com/products/'+productid)
     .then((response)=>response.json())
     .then((data)=>{setProductData(data)})
     .catch((error)=>{console.log("Error occured fetching api:",error)})
+    setLoading(false)
 
   },[])
-
 
   return(
     <div className="ProductDetails">
 
       <button onClick={()=>{handleBackButton()}} className="btn btn-lg btn-dark my-5 fs-1">Take Me Back</button>
+
+      {loading&&<p>Deleting...</p>}
 
       {
         productData&&Object.keys(productData).length>0&& (<div>

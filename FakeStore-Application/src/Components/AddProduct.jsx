@@ -9,6 +9,7 @@ function AddProduct() {
   const [price,setPrice] = useState("")
   const [description,setDescription] = useState("")
   const [category, setCategory] = useState("")
+  const [loading,setLoading]=useState(false)
   
 
   const navigate = useNavigate("")
@@ -21,6 +22,7 @@ function AddProduct() {
     // console.log(price)
     // console.log(description)
     // console.log(category)
+    setLoading(true)
     fetch('https://fakestoreapi.com/products', {
       method:"POST",
       headers: {
@@ -34,9 +36,11 @@ function AddProduct() {
     .then((data)=>console.log(data))
     alert("Product added successfully")
     navigate("/products")
+    setLoading(false)
   
     .catch((error)=>{
       console.log("Unable to add the product data", error)
+      setLoading(false)
       
     })
   }
@@ -45,6 +49,8 @@ function AddProduct() {
   return(
     <div className="px-5 py-5" >
       <NavigationPage/>
+
+      {loading&&<p>Submitting...</p>}
 
       <h1 className="fw-bolder" >Add a Product</h1>
   

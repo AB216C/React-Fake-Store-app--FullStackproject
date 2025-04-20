@@ -10,12 +10,14 @@ function UpdateProduct() {
   const [price,setPrice] = useState("")
   const [description,setDescription] = useState("")
   const [category, setCategory] = useState("")
+  const [loading,setLoading]=useState(false)
 
   const navigate = useNavigate("")
   const {productid} = useParams()
   console.log(productid)
 
   useEffect(()=>{
+    setLoading(true)
     fetch('https://fakestoreapi.com/products/'+productid)
     .then((response)=>response.json())
     .then((data)=>{
@@ -23,9 +25,11 @@ function UpdateProduct() {
       setPrice(data.price)
       setDescription(data.description)
       setCategory(data.category)
+      setLoading(false)
     })
     .catch((error)=>{
       console.log("Unable to fetch data",error)
+      setLoading(false)
     })
 
   },[])
@@ -38,7 +42,7 @@ function UpdateProduct() {
     // console.log(price)
     // console.log(description)
     // console.log(category)
-
+    setLoading(true)
     fetch('https://fakestoreapi.com/products/'+productid, {
       method:"PUT",
       headers: {
@@ -51,9 +55,11 @@ function UpdateProduct() {
     .then((data)=>console.log(data))
     alert("Product updated successfully")
     navigate("/products")
+    setLoading(false)
   
     .catch((error)=>{
       console.log("Unable to add the product data", error)
+      setLoading(false)
     })
   }
 
@@ -64,6 +70,8 @@ function UpdateProduct() {
       <NavigationPage/>
 
     <h1 className="fw-bolder" >Update a Product</h1>
+
+    {loading&&<p>Submitting...</p>}
 
     <form onSubmit={handleSubmit} >
       <label htmlFor="title">Title: </label>
