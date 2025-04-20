@@ -9,9 +9,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 
 function App() {
   return (
-    <div className="bg-warning" >
-    <p>Welcome to my App</p>
-
+    <div className="bg-warning px-5 py-5">
     <BrowserRouter>
       <Routes>
         <Route>

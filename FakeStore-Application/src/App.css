@@ -58,6 +58,15 @@ img {
   width:50%
 }
 
-body {
-  background-color: black;
+div label {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 2em;
+}
+
+/* .bg-warning {
+  height:900px;
+} */
+
+.ProductListing {
+  background-color: blue;
 }

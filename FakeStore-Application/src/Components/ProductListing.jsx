@@ -39,7 +39,6 @@ function ProductListing(){
   
     <div className="ProductListing">
       <NavigationPage/>
-      <p>Product Listing Page</p>
 
       <button onClick={()=>setShowCart(!showCart)} >Cart:{cart.length} items </button>
 

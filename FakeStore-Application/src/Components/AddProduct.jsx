@@ -43,28 +43,35 @@ function AddProduct() {
 
 
   return(
-    <div>
+    <div className="px-5 py-5" >
       <NavigationPage/>
 
-      <h1>Add a Product</h1>
+      <h1 className="fw-bolder" >Add a Product</h1>
   
       <form onSubmit={handleSubmit} >
-        <label htmlFor="title">Title: </label>
-        <input type="text" id="title" name="title" value={title} onChange={e=>setTitle(e.target.value)} />
+        <div>
+          <label htmlFor="title">Title: </label>
+          <input type="text" className="form-control" id="title" name="title" value={title} onChange={e=>setTitle(e.target.value)} />
+        </div>
 
-        <label htmlFor="price">Price:$ </label>
-        <input type="text" id="title" name="title" value={price} onChange={e=>setPrice(e.target.value)} />
+        <div>
+          <label htmlFor="price">Price:$ </label>
+          <input type="text" className="form-control" id="title" name="title" value={price} onChange={e=>setPrice(e.target.value)} />
+        </div>
 
+        <div>
         <label htmlFor="description">Description: </label>
-        <input type="text" id="title" name="title" value={description} onChange={e=>setDescription(e.target.value)} />
+        <input type="text" className="form-control" id="title" name="title" value={description} onChange={e=>setDescription(e.target.value)} />
+        </div>
 
-
-        <label htmlFor="category">Category: </label>
-        <input type="text" id="title" name="title" value={category} onChange={e=>setCategory(e.target.value)} />
+        <div>
+          <label htmlFor="category">Category: </label>
+          <input type="text" className="form-control" id="title" name="title" value={category} onChange={e=>setCategory(e.target.value)} />
+        </div>
 
         <br/>
-       
-        <button type="submit"> Submit</button>
+  
+        <button type="submit" className="btn px-5 py-3 bg-success fs-2" > Submit</button>
       </form>
     </div>
 

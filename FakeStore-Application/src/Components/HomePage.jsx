@@ -15,9 +15,11 @@ function HomePage() {
   return(
     <div className="bg-dark text-white fs-1 px-4 py-4 " >
       <NavigationPage/>
-      <h1>This is E-commmerce Fake Store</h1>
-      <p>Welcome to our Store. We are here to serve you</p>
-      <Button onClick={showProductListing} variant="danger" >Enter the store</Button>
+      <div className="fw-bolder my-5 " >
+        <p>Welcome to our Store. We're here to serve you</p>
+        <Button onClick={showProductListing} variant="danger" className="px-4 py-4 fw-bolder fs-3" >Enter the store</Button>
+      </div>
+
     </div>
 
   )

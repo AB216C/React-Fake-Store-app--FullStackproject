@@ -10,6 +10,10 @@ function ProductDetails() {
 
   const navigate = useNavigate()
 
+  const handleBackButton=()=>{
+    navigate("/products")
+  }
+
   const deleteItem=()=>{ if(window.confirm("Do you want to remove this item?")){
     fetch('https://fakestoreapi.com/products/'+productid, {
       method:"DELETE",
@@ -41,7 +45,6 @@ function ProductDetails() {
 
   return(
     <div>
-      <p>Product Details page</p>
 
       {
         productData&&Object.keys(productData).length>0&& (<div>
@@ -61,8 +64,7 @@ function ProductDetails() {
       </div>)
       }
 
-
-
+      <button onClick={()=>{handleBackButton()}} >Take Me Back</button>
     </div>
   )
 }
