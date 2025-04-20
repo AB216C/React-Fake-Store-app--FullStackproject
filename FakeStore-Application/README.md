@@ -1,12 +1,12 @@
-# React + Vite
+# FAKESTORE API PROJECT
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+The main goal for the project is to fetch fakeStore API and display data to the user interface. 
 
-Currently, two official plugins are available:
+User has ability to see a list of products from api, delete products, add products, and update products. 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+The navigation bar, buttons and other html tags were  styled using react-bootstrap documentations.
 
-## Expanding the ESLint configuration
+useParams() function were very essential in accessing product id for an individual item and were helpful in viewing details of the item, updating and deleting items from api.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+useNavigate() and Routing methods played a big role in navigating from one components to another. 
+
