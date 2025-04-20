@@ -74,10 +74,10 @@ function ProductDetails() {
       }
 
        <Modal show={showModal} onHide={() => setShowModal(false)} centered>
-        <Modal.Header closeButton>
+        <Modal.Header closeButton className="bg-info">
           <Modal.Title>Confirm Product Deletion</Modal.Title>
         </Modal.Header>
-        <Modal.Body>
+        <Modal.Body className="fw-bold">
           Are you sure you want to delete this product? Once deleted cannot be undone.
         </Modal.Body>
         <Modal.Footer>
