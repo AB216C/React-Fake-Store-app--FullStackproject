@@ -1,12 +1,14 @@
 import 'bootstrap/dist/css/bootstrap.css';
 import {useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
+import { Modal,Button} from 'react-bootstrap'
 
 
 function ProductDetails() {
   const {productid} = useParams()
   const [productData,setProductData]=useState({})
   const [loading,setLoading]=useState(false)
+  const [showModal,setShowModal]=useState(false)
 
   const navigate = useNavigate()
 
@@ -14,7 +16,7 @@ function ProductDetails() {
     navigate("/products")
   }
 
-  const deleteItem=()=>{ if(window.confirm("Do you want to remove this item?")){
+  const handleDelete=()=>{
     setLoading(true)
     fetch('https://fakestoreapi.com/products/'+productid, {
       method:"DELETE",
@@ -32,9 +34,8 @@ function ProductDetails() {
     .catch((error)=>{
       console.log("Unable to delete the product", error)
       setLoading(false)
-    })
-   
-  }
+    });
+    setShowModal(false)
   }
 
   useEffect(()=> {
@@ -66,13 +67,28 @@ function ProductDetails() {
 
         <div className="my-4">
         <button className="btn btn-lg btn-primary mx-5">Add to cart</button>
-        <button onClick={()=>deleteItem(productData.id)} className="btn btn-danger btn-lg mx-3" >Delete the item from listing</button>
+        <button onClick={()=>setShowModal(true)} className="btn btn-danger btn-lg mx-3" >Delete the item from listing</button>
         </div>
  
       </div>)
       }
 
-     
+       <Modal show={showModal} onHide={() => setShowModal(false)} centered>
+        <Modal.Header closeButton>
+          <Modal.Title>Confirm Product Deletion</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          Are you sure you want to delete this product? Once deleted cannot be undone.
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={() => setShowModal(false)}>
+            Cancel
+          </Button>
+          <Button variant="danger" onClick={handleDelete}>
+            Delete
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </div>
   )
 }
