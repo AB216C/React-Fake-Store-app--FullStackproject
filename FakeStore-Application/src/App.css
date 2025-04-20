@@ -69,4 +69,15 @@ div label {
 
 .ProductListing {
   background-color: blue;
+  color:white;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size:large;
+  font-weight: bolder;
+  line-height: 55px;
+}
+
+.ProductDetails {
+  line-height: 40px;
+  font-size:25px;
+
 }

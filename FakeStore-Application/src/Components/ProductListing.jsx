@@ -21,6 +21,7 @@ function ProductListing(){
 
   const handleAddToCart=(product)=> {
     setCart(prevCart=>[...prevCart,product])
+    alert("Successfully added to cart")
   }
 
   const fetchProducts=()=>{
@@ -40,10 +41,11 @@ function ProductListing(){
     <div className="ProductListing">
       <NavigationPage/>
 
-      <button onClick={()=>setShowCart(!showCart)} >Cart:{cart.length} items </button>
+      <button onClick={()=>setShowCart(!showCart)} className="btn btn-dark fs-1 mt-4"> View Cart:{cart.length} items </button>
 
       {showCart&& cart.map((product,index)=> 
-      <li key={index} >{product.title}:${product.price} </li>
+      <ul><li key={index} className="bg-secondary me-4" >{product.title}:&nbsp;${product.price} </li>
+      </ul>
       )}
 
       <div className="ProductsList">
@@ -54,9 +56,9 @@ function ProductListing(){
             <li>{product.title}</li>
             <li>{product.image && <img src={product.image}/>}</li>
             <li>${product.price}</li>
-            <button onClick={()=>showDetails(product.id)} >View Details</button>
-            <button onClick={()=>handleProductUpdate(product.id)} >Update info</button>
-            <button onClick={()=>handleAddToCart(product)}>Add to cart</button>
+            <button onClick={()=>showDetails(product.id)} className="btn btn-lg btn-info mx-3">View Details</button>
+            <button onClick={()=>handleProductUpdate(product.id)} className="btn btn-lg btn-warning mx-3" >Update info</button>
+            <button onClick={()=>handleAddToCart(product)} className="btn btn-lg btn-dark mx-3">Add to cart</button>
 
             </ul>
           ))
@@ -64,7 +66,7 @@ function ProductListing(){
 
       </div>
 
-      <Link to="/product/add" >Add a New Product</Link>
+      <Link to="/product/add" className="btn btn-secondary fs-3 mb-4" >Add a New Product</Link>
 
     </div>
   )

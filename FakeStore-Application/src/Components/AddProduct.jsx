@@ -71,7 +71,7 @@ function AddProduct() {
 
         <br/>
   
-        <button type="submit" className="btn px-5 py-3 bg-success fs-2" > Submit</button>
+        <button type="submit" className="btn px-5 py-3 bg-success fs-2 text-white fw-bold" > Submit</button>
       </form>
     </div>
 

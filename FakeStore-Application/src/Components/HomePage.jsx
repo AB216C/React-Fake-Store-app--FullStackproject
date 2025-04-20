@@ -17,7 +17,7 @@ function HomePage() {
       <NavigationPage/>
       <div className="fw-bolder my-5 " >
         <p>Welcome to our Store. We're here to serve you</p>
-        <Button onClick={showProductListing} variant="danger" className="px-4 py-4 fw-bolder fs-3" >Enter the store</Button>
+        <Button onClick={showProductListing} variant="danger" className="px-4 py-4 fw-bolder fs-3" >Enter The Store</Button>
       </div>
 
     </div>

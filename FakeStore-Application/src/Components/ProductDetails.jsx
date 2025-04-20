@@ -44,27 +44,29 @@ function ProductDetails() {
 
 
   return(
-    <div>
+    <div className="ProductDetails">
+
+      <button onClick={()=>{handleBackButton()}} className="btn btn-lg btn-dark my-5 fs-1">Take Me Back</button>
 
       {
         productData&&Object.keys(productData).length>0&& (<div>
         <ul>
           <li> {productData.image && <img src={productData.image}/> } </li>
           <li> <strong>Title:</strong>  {productData.title}</li>
-          <li><strong>Price:</strong>  {productData.price}</li>
+          <li><strong>Price:</strong> $ {productData.price}</li>
           <li> <strong>Category:</strong> {productData.category}</li>
           <li> <strong>Description:</strong> {productData.description}</li>
         </ul>
 
-        <div>
-        <button>Add to cart</button>
-        <button onClick={()=>deleteItem(productData.id)} >Delete the item from listing</button>
+        <div className="my-4">
+        <button className="btn btn-lg btn-primary mx-5">Add to cart</button>
+        <button onClick={()=>deleteItem(productData.id)} className="btn btn-danger btn-lg mx-3" >Delete the item from listing</button>
         </div>
  
       </div>)
       }
 
-      <button onClick={()=>{handleBackButton()}} >Take Me Back</button>
+     
     </div>
   )
 }

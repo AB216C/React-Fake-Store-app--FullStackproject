@@ -63,24 +63,24 @@ function UpdateProduct() {
 
       <NavigationPage/>
 
-    <h1>Update a Product</h1>
+    <h1 className="fw-bolder" >Update a Product</h1>
 
     <form onSubmit={handleSubmit} >
       <label htmlFor="title">Title: </label>
-      <input type="text" id="title" name="title" value={title} onChange={e=>setTitle(e.target.value)} />
+      <input type="text" className="form-control" id="title" name="title" value={title} onChange={e=>setTitle(e.target.value)} />
 
       <label htmlFor="price">Price:$ </label>
-      <input type="text" id="title" name="title" value={price} onChange={e=>setPrice(e.target.value)} />
+      <input type="text" className="form-control"  id="title" name="title" value={price} onChange={e=>setPrice(e.target.value)} />
 
       <label htmlFor="description">Description: </label>
-      <input type="text" id="title" name="title" value={description} onChange={e=>setDescription(e.target.value)} />
+      <input type="text" className="form-control"  id="title" name="title" value={description} onChange={e=>setDescription(e.target.value)} />
 
 
       <label htmlFor="category">Category: </label>
-      <input type="text" id="title" name="title" value={category} onChange={e=>setCategory(e.target.value)} />
+      <input type="text" className="form-control"  id="title" name="title" value={category} onChange={e=>setCategory(e.target.value)} />
 
       <br/>
-      <button type="submit"> Submit Changes</button>
+      <button type="submit" className="btn btn-lg btn-success fw-bold py-3"> Submit Changes</button>
     </form>
   
     </div>
