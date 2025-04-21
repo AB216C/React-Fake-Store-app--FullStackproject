@@ -22,7 +22,7 @@ function ProductListing(){
 
   const handleAddToCart=(product)=> {
     setCart(prevCart=>[...prevCart,product])
-    alert(`${product.title} added to cart successfully`)
+    alert(`${product.title} successfully added to cart`)
   }
 
   const fetchProducts=()=>{

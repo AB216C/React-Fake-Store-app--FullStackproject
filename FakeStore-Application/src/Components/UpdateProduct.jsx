@@ -53,7 +53,7 @@ function UpdateProduct() {
 
     .then((response)=>response.json())
     .then((data)=>console.log(data))
-    alert("Product updated successfully")
+    alert(` ${productData.title} updated successfully`)
     navigate("/products")
     setLoading(false)
   
@@ -75,17 +75,17 @@ function UpdateProduct() {
 
     <form onSubmit={handleSubmit} >
       <label htmlFor="title">Title: </label>
-      <input type="text" className="form-control" id="title" name="title" value={title} onChange={e=>setTitle(e.target.value)} />
+      <input type="text" className="form-control" id="title" name="title" value={title} onChange={e=>setTitle(e.target.value)}required />
 
       <label htmlFor="price">Price:$ </label>
-      <input type="text" className="form-control"  id="title" name="title" value={price} onChange={e=>setPrice(e.target.value)} />
+      <input type="text" className="form-control"  id="title" name="title" value={price} onChange={e=>setPrice(e.target.value)}required />
 
       <label htmlFor="description">Description: </label>
-      <input type="text" className="form-control"  id="title" name="title" value={description} onChange={e=>setDescription(e.target.value)} />
+      <input type="text" className="form-control"  id="title" name="title" value={description} onChange={e=>setDescription(e.target.value)}required />
 
 
       <label htmlFor="category">Category: </label>
-      <input type="text" className="form-control"  id="title" name="title" value={category} onChange={e=>setCategory(e.target.value)} />
+      <input type="text" className="form-control"  id="title" name="title" value={category} onChange={e=>setCategory(e.target.value)}required />
 
       <br/>
       <button type="submit" className="btn btn-lg btn-success fw-bold py-3"> Submit Changes</button>
