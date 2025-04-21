@@ -26,7 +26,7 @@ function ProductDetails() {
     })
 
     .then((response)=>{
-      alert("The Product  was deleted successfully")
+      alert(`${productData.title}The Product  was deleted successfully`)
       navigate("/products")
       setLoading(false)
     })
