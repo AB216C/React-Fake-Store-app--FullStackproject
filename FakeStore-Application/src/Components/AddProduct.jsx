@@ -34,7 +34,7 @@ function AddProduct() {
 
     .then((response)=>response.json())
     .then((data)=>console.log(data))
-    alert(`${productData.title} added successfully`)
+    alert(` ${productData.title} added successfully`)
     navigate("/products")
     setLoading(false)
   
@@ -72,7 +72,7 @@ function AddProduct() {
 
         <div>
           <label htmlFor="category">Category: </label>
-          <input type="text" className="form-control" id="title" name="title" value={category} onChange={e=>setCategory(e.target.value)}required />
+          <input type="text" className="form-control" id="title" name="title" value={category} onChange={e=>setCategory(e.target.value)}required/>
         </div>
 
         <br/>

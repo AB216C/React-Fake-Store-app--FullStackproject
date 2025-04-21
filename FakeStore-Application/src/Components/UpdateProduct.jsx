@@ -53,7 +53,7 @@ function UpdateProduct() {
 
     .then((response)=>response.json())
     .then((data)=>console.log(data))
-    alert(` ${productData.title} updated successfully`)
+    alert(`${productData.title} updated successfully`)
     navigate("/products")
     setLoading(false)
   
