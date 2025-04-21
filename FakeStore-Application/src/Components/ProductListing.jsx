@@ -10,6 +10,7 @@ function ProductListing(){
   const [cart,setCart]=useState([])
   const [showCart,setShowCart]=useState(false)
   const [loading,setLoading]=useState(false)
+  const [total,setTotal]= useState(0)
   const navigate =useNavigate()
 
   const showDetails=(id)=>{
@@ -24,6 +25,11 @@ function ProductListing(){
     setCart(prevCart=>[...prevCart,product])
     alert(` ${product.title}  added to cart successfully`)
   }
+
+  useEffect(()=> {
+    const totalAmount = cart.reduce((sum,product)=>sum+product.price,0)
+    setTotal(totalAmount)
+  },[cart])
 
   const fetchProducts=()=>{
     setLoading(true)
@@ -45,8 +51,11 @@ function ProductListing(){
       <NavigationPage/>
 
       {loading&&<p>Loading...</p>}
+      <div>
+        <button onClick={()=>setShowCart(!showCart)} className="btn btn-dark fs-1 mt-4"> View Cart:{cart.length} items, Total:${total} </button>
+      </div>
 
-      <button onClick={()=>setShowCart(!showCart)} className="btn btn-dark fs-1 mt-4"> View Cart:{cart.length} items </button>
+
 
       {showCart&& cart.map((product,index)=> 
       <ul><li key={index} className="bg-secondary me-4" >{product.title}:&nbsp;${product.price} </li>
