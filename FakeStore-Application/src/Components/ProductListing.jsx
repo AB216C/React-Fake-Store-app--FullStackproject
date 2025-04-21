@@ -52,7 +52,7 @@ function ProductListing(){
 
       {loading&&<p>Loading...</p>}
       <div>
-        <button onClick={()=>setShowCart(!showCart)} className="btn btn-dark fs-1 mt-4"> View Cart:{cart.length} items, Total:${total} </button>
+        <button onClick={()=>setShowCart(!showCart)} className="btn btn-dark fs-1 mt-4"> View Cart:{cart.length} items, Total:${total.toFixed(2)} </button>
       </div>
 
 
